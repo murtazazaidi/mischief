@@ -1,0 +1,25 @@
+This file is self notes, scribbles for new recipes
+"""
+RECIPIES:
+
+# Recipe 1: Follow everyone in the list (here followers of authenticated user)
+for follower in tweepy.Cursor(API.followers).items():
+    follower.follow()
+
+# Recipe 3: Get authorized user's timeline
+public_tweets = API.home_timeline()
+for tweet in public_tweets:
+    print tweet.text
+
+# Recipe 4: Get authorized user's timeline
+public_tweets = API.user_timeline(user_name)
+for tweet in public_tweets:
+    print tweet.text
+
+# Recipe 5: Follow somone's following LISTS
+someones_friends = API.friends_ids('')
+for user_id in someones_friends:
+    followed_user = API.create_friendship(user_id)
+    print 'Followed: ' + followed_user.screen_name
+
+"""
